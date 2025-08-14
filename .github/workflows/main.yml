@@ -4,7 +4,7 @@ on: push
 
 jobs:
   run-api-tests:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -15,14 +15,13 @@ jobs:
 
       - name: Create missing directories
         run: |
-          New-Item -ItemType Directory -Force -Path "_docker"
-          New-Item -ItemType Directory -Force -Path "_docker/cron"
+          mkdir -p _docker/cron
 
       - name: Start Docker services
         run: docker compose up -d --build
 
       - name: Wait for services to be ready
-        run: Start-Sleep -Seconds 60
+        run: sleep 60
 
       - name: Setup database
         run: |
