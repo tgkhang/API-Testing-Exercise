@@ -17,12 +17,12 @@ jobs:
         run: npm install -g newman
 
       - name: Run Newman with data file
-        continue-on-error: true
         run: |
           newman run "./API Testing.postman_collection.json" \
             --iteration-data "./login.json" \
             --reporters cli,json \
-            --reporter-json-export "newman-report.json"
+            --reporter-json-export "newman-report.json" \
+            --suppress-exit-code
 
       - name: Upload Newman Report
         uses: actions/upload-artifact@v4
