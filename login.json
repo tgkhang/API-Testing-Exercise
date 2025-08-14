@@ -1,0 +1,50 @@
+[
+  {
+    "email": "admin@practicesoftwaretesting.com",
+    "password": "welcome01",
+    "type": "valid",
+    "description": "Valid admin account",
+    "newPassword": "welcome02",
+    "newPasswordConfirmation": "welcome02"
+  },
+  {
+    "email": "admin@practicesoftwaretesting.com",
+    "password": "welcome",
+    "type": "invalid",
+    "description": "Valid admin account with incorrect password",
+    "newPassword": "welcome02",
+    "newPasswordConfirmation": "welcome02"
+  },
+  {
+    "email": "customer@practicesoftwaretesting.com",
+    "password": "welcome01",
+    "type": "valid",
+    "description": "Valid customer account",
+    "newPassword": "welcome02",
+    "newPasswordConfirmation": "welcome02"
+  },
+  {
+    "email": "customer2@practicesoftwaretesting.com",
+    "password": "welcome01",
+    "type": "valid",
+    "description": "Valid customer2 account",
+    "newPassword": "welcome02",
+    "newPasswordConfirmation": "welcome02"
+  },
+  {
+    "email": "     customer2@practicesoftwaretesting.com     ",
+    "password": "welcome01",
+    "type": "valid",
+    "description": "Valid customer2 account with spaces in email",
+    "newPassword": "welcome02",
+    "newPasswordConfirmation": "welcome02"
+  },
+  {
+    "email": "abc@practicesoftwaretesting.com",
+    "password": "pass123",
+    "type": "invalid",
+    "description": "Non-existent account",
+    "newPassword": "welcome02",
+    "newPasswordConfirmation": "welcome02"
+  }
+]
