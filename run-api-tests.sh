@@ -23,8 +23,7 @@ if ! command -v newman &> /dev/null; then
 fi
 
 # Run tests
-echo "🧪 Running API tests..."
-newman run "tests/api/API Testing.postman_collection.json" --iteration-data "tests/api/login.json" --reporters cli,json --reporter-json-export newman-report.json
+# TODO (Bạn thêm code ở dưới đây)
 
 # Cleanup (optional)
 docker compose down
