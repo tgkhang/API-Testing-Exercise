@@ -46,5 +46,13 @@
     "description": "Non-existent account",
     "newPassword": "welcome02",
     "newPasswordConfirmation": "welcome02"
+  },
+  {
+    "email": "admin@practicesoftwaretesting.com",
+    "password": "welcome01",
+    "type": "valid",
+    "description": "Valid admin account, wrong password confirmation",
+    "newPassword": "welcome02",
+    "newPasswordConfirmation": "welcome03"
   }
 ]
