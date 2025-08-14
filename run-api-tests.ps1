@@ -22,6 +22,7 @@ if (-not (Get-Command newman -ErrorAction SilentlyContinue)) {
 # Run tests
 Write-Host " Running API tests..."
 # TODO (Bạn thêm code ở dưới đây)
+newman run "tests/api/API Testing.postman_collection.json" --iteration-data "tests/api/login.json" --reporters cli,json --reporter-json-export newman-report.json
 
 # Cleanup
 Write-Host " Stopping Docker containers..."
