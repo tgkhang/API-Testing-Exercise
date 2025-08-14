@@ -18,7 +18,14 @@ jobs:
 
       - name: Run Newman with data file
         run: |
-          newman run "./.postman/collection.json" \
-            --iteration-data "./.postman/login.json" \
+          newman run "./API Testing.postman_collection.json" \
+            --iteration-data "./login.json" \
             --reporters cli,json \
             --reporter-json-export "newman-report.json"
+
+      - name: Upload Newman Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: newman-report
+          path: newman-report.json
