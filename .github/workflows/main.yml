@@ -13,16 +13,28 @@ jobs:
         with:
           node-version: 18
 
+      - name: Create missing directories
+        run: |
+          New-Item -ItemType Directory -Force -Path "_docker"
+          New-Item -ItemType Directory -Force -Path "_docker/cron"
+
+      - name: Start Docker services
+        run: docker compose up -d --build
+
+      - name: Wait for services to be ready
+        run: Start-Sleep -Seconds 60
+
+      - name: Setup database
+        run: |
+          docker compose exec -T laravel-api php artisan migrate --force
+          docker compose exec -T laravel-api php artisan db:seed --force
+
       - name: Install Newman
         run: npm install -g newman
 
       - name: Run Newman with data file
-        run: |
-          newman run "API Testing.postman_collection.json" --iteration-data "login.json" --suppress-exit-code
+        run: newman run 'tests/api/API Testing.postman_collection.json' --iteration-data 'tests/api/login.json'
 
-      - name: Upload Newman Report
-        uses: actions/upload-artifact@v4
+      - name: Cleanup Docker
         if: always()
-        with:
-          name: newman-report
-          path: newman-report.json
+        run: docker compose down
